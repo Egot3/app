@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>You Got Answers</title>
+</head>
+<body>
+    
+    <!-- <form method="get" action="/display_data/">
+            <button type="submit" name="your" class="btn btn-primary">Primary</button>
+    </form> -->
+    <form method="post" action="/display_data/">
+        <label>Ответы отвечены правильно:</label>
+        <p>{{goodAnswer}}</p>
+        <p>Хотите продолжить отвечать?</p>
+        <input type="text" id="superAnswer" name="superAnswer">
+        <input type="submit" value="Отправить">
+    </form>
+</body>
+</html>
