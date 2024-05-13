@@ -1,34 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Получить пример</title>
-</head>
-<body>
-    <form method="get" action="/superredirect"></form>
-    <h1>Выберите сложность примеров</h1>
-    <fieldset>
-        <legend>Сложности:</legend>
-      
-        <div>
-          <input type="radio" name="Level" value="easyLevel" checked />
-          <label for="easyLevel">easy Level</label>
-        </div>
-      
-        <div>
-          <input type="radio" id="normalLevel" name="Level" value="normalLevel" />
-          <label for="normalLevel">normal Level</label>
-        </div>
-      
-        <div>
-          <input type="radio" id="hardLevel" name="Level" value="hardLevel" />
-          <label for="hardLevel">hard Level</label>
-        </div>
-      </fieldset>
-      
+{% extends 'base.html' %}
+{% block content %}
+  <form method="post" action="{{url_for('submit')}}">
+  <h1>Выберите сложность примеров</h1>
+  
+    <input type="radio" name="Level" class="form-check-input" value="easyLevel"> Легкая<br>
+    <input type="radio" name="Level" class="form-check-input" value="normalLevel"> Нормальная<br>
+    <input type="radio" name="Level" class="form-check-input" value="hardLevel"> Сложная<br><br>
+    <input type="submit" class="btn btn-primary" value="Подтвердить">
     
-        <button type="submit">Получить пример</button>
-    </form>
-</body>
-</html>
+  
+  </form>
+{% endblock %}
