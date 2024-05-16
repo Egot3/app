@@ -60,7 +60,7 @@ def submit():
         znaks=znaks[:-3]
         numsInPrim = randint(3,5)
     znaks=''.join(znaks)
-    return redirect(url_for(".display",numsInPrim=numsInPrim,znaki=znaks,answers=0,colOfPrim=6,truePrim='None'))
+    return redirect(url_for(".display",numsInPrim=numsInPrim,znaki=znaks,answers=0,colOfPrim=6,truePrim='None')) #colOfPrim-затычка
 
 
 @app.route('/YGT')
