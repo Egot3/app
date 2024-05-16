@@ -2,10 +2,9 @@ from flask import Flask, render_template, redirect, url_for, request, jsonify,se
 from random import randint, choice
 import string
 import requests
-#from login_web_controller import login_controller
 
 app = Flask(__name__)
-#app.register_blueprint(login_controller) 
+
 
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]0/'
 
@@ -157,24 +156,28 @@ def log(username, password):
         return redirect(url_for('index'))
     return redirect(url_for('logun'))
 
+
 @app.route('/registration', methods=['POST', 'GET'])
 def registration():
     if request.method == 'POST':
         
-
-        username = request.form['username']
+        username=request.form['firstName']
         password = request.form['password']
-        mail = request.form['mail']+'@'+request.form['mailmail']
+        mail = request.form['mail']
         data={
-        'users':username,
-        'passwords':password,
-        'mail':mail,
-        'totalAnswers':0
+        'name':username,
+        'password':password,
+        'email':mail,
+        'phone':0
         }
         session['username'] = username
 
-        return redirect(url_for('index')), jsonify(data)
+
+        requests.post("http://127.0.0.1:5001/add_user", json=data)
+
+        return redirect(url_for('index'))
     return render_template('registration.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
+
